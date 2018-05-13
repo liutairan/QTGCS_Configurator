@@ -17,6 +17,7 @@ public:
     QString ResourcePath;
     QString mapImagePath;
     QString mapIndexPath;
+    QString xbeeAddrDir;
     QString xbeeAddrPath;
     QString logFilePath;
     QString mapType;

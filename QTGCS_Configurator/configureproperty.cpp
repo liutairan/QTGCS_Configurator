@@ -10,6 +10,7 @@ ConfigureProperty::ConfigureProperty()
     ResourcePath = "";
     mapImagePath = "";
     mapIndexPath = "";
+    xbeeAddrDir = "";
     xbeeAddrPath = "";
     logFilePath = "";
 

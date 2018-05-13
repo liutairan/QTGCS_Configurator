@@ -10,6 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = QTGCS_Configurator
 TEMPLATE = app
+ICON = QTGCS.icns
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -26,11 +27,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    configureproperty.cpp
+        configureproperty.cpp
 
 HEADERS += \
         mainwindow.h \
-    configureproperty.h
+        configureproperty.h
 
 FORMS += \
         mainwindow.ui

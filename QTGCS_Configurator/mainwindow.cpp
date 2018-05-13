@@ -131,7 +131,7 @@ void MainWindow::dirAssert()
         QDir().mkdir(cfgp->mapImagePath);
     }
 
-    if(QDir(cfgp->xbeeAddrPath).exists())
+    if(QDir(cfgp->xbeeAddrDir).exists())
     {
         ;
     }
@@ -273,7 +273,8 @@ void MainWindow::on_autoSetButton_clicked()
 {
     cfgp->mapImagePath = cfgp->ResourcePath + "mapscache/";
     cfgp->mapIndexPath = cfgp->ResourcePath + "mapcache.txt";
-    cfgp->xbeeAddrPath = cfgp->ResourcePath + "xbeeaddr/";
+    cfgp->xbeeAddrDir = cfgp->ResourcePath + "xbeeaddr/";
+    cfgp->xbeeAddrPath = cfgp->xbeeAddrDir + "xbeeaddrlist.txt";
     cfgp->logFilePath = cfgp->ResourcePath + "log/";
     setUI();
 }

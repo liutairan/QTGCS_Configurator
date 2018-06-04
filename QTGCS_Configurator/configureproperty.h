@@ -14,6 +14,7 @@ public:
     QString CFGAppPath;
     QString MMAppPath;
     QString cfgFilePath;
+    QString mmCfgFilePath;
     QString ResourcePath;
     QString mapImagePath;
     QString mapIndexPath;

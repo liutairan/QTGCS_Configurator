@@ -6,6 +6,7 @@ ConfigureProperty::ConfigureProperty()
     CFGAppPath = "";
     MMAppPath = "";
     cfgFilePath = "";
+    mmCfgFilePath = "";
 
     ResourcePath = "";
     mapImagePath = "";

@@ -26,8 +26,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QString appPath;
+    QString mmAppPath;
     QString currentWorkingPath;
     QString cfgFilePath;
+    QString mmCfgFilePath;
     ConfigureProperty *cfgp;
     QByteArray readJsonFile(const QString &filename);
     void writeJsonFile(const QString &filename, QString outString);
@@ -48,6 +50,8 @@ private slots:
     void on_resourceBrowseButton_clicked();
 
     void on_autoSetButton_clicked();
+
+    void on_mmBrowseButton_clicked();
 
 private:
     Ui::MainWindow *ui;

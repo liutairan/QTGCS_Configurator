@@ -8,8 +8,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     removeToolBar(ui->mainToolBar);
     appPath = "";
+    mmAppPath = "";
     currentWorkingPath = "";
     cfgFilePath = "";
+    mmCfgFilePath = "";
     cfgp = new ConfigureProperty();
     // Product type is the system type, for example,
     //    macos, winrt, etc.
@@ -108,6 +110,7 @@ void MainWindow::writeConfigFile()
 
     // Write to configure file
     writeJsonFile(cfgp->cfgFilePath, cfgJsonDoc.toJson());
+    writeJsonFile(cfgp->mmCfgFilePath, cfgJsonDoc.toJson());
     //
 }
 
@@ -277,4 +280,55 @@ void MainWindow::on_autoSetButton_clicked()
     cfgp->xbeeAddrPath = cfgp->xbeeAddrDir + "xbeeaddrlist.txt";
     cfgp->logFilePath = cfgp->ResourcePath + "log/";
     setUI();
+}
+
+void MainWindow::on_mmBrowseButton_clicked()
+{
+    if (cfgp->productType == "osx")
+    {
+        QString fileName = QFileDialog::getOpenFileName(this, "Choose App File", "", "App Package (*.app);;All files (*.*)");
+        if (fileName.length() > 0)
+        {
+            if (fileName.endsWith("QTGCS_MapManager.app"))
+            {
+                //qDebug() << fileName;
+                mmAppPath = fileName;
+                cfgp->MMAppPath = fileName;
+                ui->mmPathEdit->setText(cfgp->MMAppPath);
+                mmCfgFilePath = fileName + "/Contents/MacOS/config.json";
+                cfgp->mmCfgFilePath = mmCfgFilePath;
+                //cfgp->cfgFilePath = cfgFilePath;
+                //readConfigFile();
+                //setUI();
+            }
+            else
+            {
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::critical(this, "Error", "Please choose the valid application.",
+                                                QMessageBox::Ok);
+            }
+        }
+    }
+    else if (cfgp->productType == "macos")
+    {;}
+    else if (cfgp->productType == "ios")
+    {;}
+    else if (cfgp->productType == "tvos")
+    {;}
+    else if (cfgp->productType == "watchos")
+    {;}
+    else if (cfgp->productType == "darwin")
+    {;}
+    else if (cfgp->productType == "android")
+    {;}
+    else if (cfgp->productType == "debian")
+    {;}
+    else if (cfgp->productType == "winrt")
+    {;}
+    else if (cfgp->productType == "windows")
+    {;}
+    else if (cfgp->productType == "unknown")
+    {;}
+    else
+    {;}
 }
